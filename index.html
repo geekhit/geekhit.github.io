@@ -1,74 +1,130 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>This for my daddy!</title>
+		<meta charset=utf-8>
+        <meta name="description" content="Restaurant Website and Gallery Template with jQuery and Google Maps" />
+        <meta name="keywords" content="jquery, gallery, images, css3, html5, photography, website, template, google maps, sliding, background"/>
+		<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"/>
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css' />
+		<link href='http://fonts.googleapis.com/css?family=Terminal+Dosis+Light' rel='stylesheet' type='text/css'>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+		<script src="http://maps.google.com/maps/api/js?sensor=true" type="text/javascript"></script>
+    </head>
+<body>
 
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <title>Geekhit.github.io by geekhit</title>
-  </head>
-
-  <body>
-    <header>
-      <div class="inner">
-        <h1>Geekhit.github.io</h1>
-        <h2>This is just for my daddy</h2>
-        <a href="https://github.com/geekhit" class="button"><small>Follow me on</small>GitHub</a>
-      </div>
-    </header>
-
-    <div id="content-wrapper">
-      <div class="inner clearfix">
-        <section id="main-content">
-          <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
-
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
-
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-        </section>
-
-        <aside id="sidebar">
-
-
-          <p>This page was generated by <a href="pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
-        </aside>
-      </div>
-    </div>
-
-  
-  </body>
+		<div id="map"></div>
+		<div id="bf_container" class="bf_container">
+			<div id="bf_background" class="bf_background">
+				<img src="images/background/default.jpg" alt="image1" style="display:none;"/>
+				<div class="bf_overlay"></div>
+			</div>
+			<div id="bf_page_menu" class="bf_menu" >
+				<h1 class="title">冠云轩<span>书画、装裱、篆刻</span></h1>
+				<ul>
+					<li><a href="#" data-content="home"><span class="bf_hover"></span><span>业务介绍(Welcome)</span></a></li>
+					<li><a href="#" data-content="about"><span class="bf_hover"></span><span>轩主生平(About)</span></a></li>
+					<li><a href="#" data-content="menu"><span class="bf_hover"></span><span>作品欣赏(Gallery)</span></a></li>
+					<li><a href="#" data-content="visit"><span class="bf_hover"></span><span>联系我们(Contact)</span></a></li>
+				</ul>
+			</div>
+			<div class="bf_page" id="home" style="display:block;">
+				<div class="bf_content_text">
+					<h2>名人字画</h2>
+					<p>出售名家书法、字画</p>
+					<h2>书画装裱</h2>
+					<p>装裱字画，工艺精美</p>
+					<h2>文房四宝</h2>
+					<p>出售文房四宝</p>
+					<h2>篆刻</h2>
+					<p></p>
+					
+				</div>
+			</div>
+			<div class="bf_page" id="about">
+				<div class="bf_content_text">
+					<h2>王文学</h2>
+					<p>男,临沂人,1959年生,1978年高中毕业后参军到北京卫戍部队某部,至1986年复员,服役期间多次参加部队组织的书画展,并获奖,其间,李铎、王遐举等书法名家曾点评其作品并加以指点。</p>
+					<p>现为沂水县冠云轩画廊经理,2012年举办玉梁杯书画四人展。</p>
+				</div>
+			</div>
+			<div class="bf_page" id="menu">
+				<div class="bf_content_text">
+					<h2>作品</h2>
+					<ul id="bf_dishes">
+						<li><a href="#"><img src="images/thumbs/1.jpg" alt="thumb1"/></a></li>
+						<li><a href="#"><img src="images/thumbs/2.jpg" alt="thumb2"/></a></li>
+						<li><a href="#"><img src="images/thumbs/3.jpg" alt="thumb3"/></a></li>
+						<li><a href="#"><img src="images/thumbs/4.jpg" alt="thumb4"/></a></li>
+						<li><a href="#"><img src="images/thumbs/5.jpg" alt="thumb5"/></a></li>
+						<li><a href="#"><img src="images/thumbs/6.jpg" alt="thumb6"/></a></li>
+					</ul>
+				</div>
+				<div id="bf_gallery" class="bf_gallery">
+					<a id="bf_close" href="#" class="bf_close"></a>
+					<div class="bf_nav">
+						<a id="bf_prev" href="#" class="bf_prev"></a>
+						<a id="bf_next" href="#" class="bf_next"></a>
+					</div>
+					<div class="bf_gallery_wrapper">
+						<div class="bf_gallery_item">
+							<div class="bf_heading"><h2>Pizza Rustica</h2></div>
+							<div class="bf_desc">
+								<p>Fresh ingredients and authentic flavours</p>
+							</div>
+							<img src="images/foreground/1.jpg" alt="image1" data-bgimg="images/background/1.jpg" />
+						</div>
+						<div class="bf_gallery_item">
+							<div class="bf_heading"><h2>Pizza Quattro Stagioni</h2></div>
+							<div class="bf_desc">
+								<p>Originality meets tradition</p>
+							</div>
+							<img src="images/foreground/2.jpg" alt="image1" data-bgimg="images/background/2.jpg" />
+						</div>
+						<div class="bf_gallery_item">
+							<div class="bf_heading"><h2>Rucolini</h2></div>
+							<div class="bf_desc">
+								<p>Dive into the balance of taste</p>
+							</div>
+							<img src="images/foreground/3.jpg" alt="image1" data-bgimg="images/background/3.jpg" />
+						</div>
+						<div class="bf_gallery_item">
+							<div class="bf_heading"><h2>Salsicce Boscaiola</h2></div>
+							<div class="bf_desc">
+								<p>The right intensity</p>
+							</div>
+							<img src="images/foreground/4.jpg" alt="image1" data-bgimg="images/background/4.jpg" />
+						</div>
+						<div class="bf_gallery_item">
+							<div class="bf_heading"><h2>Tortelloni Alla Zucca</h2></div>
+							<div class="bf_desc">
+								<p>Incredibly tasty perfection</p>
+							</div>
+							<img src="images/foreground/5.jpg" alt="image1" data-bgimg="images/background/5.jpg" />
+						</div>
+						<div class="bf_gallery_item">
+							<div class="bf_heading"><h2>Calamaretti Fritti</h2></div>
+							<div class="bf_desc">
+								<p>Combine chunky and soft</p>
+							</div>
+							<img src="images/foreground/6.jpg" alt="image1" data-bgimg="images/background/6.jpg" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="bf_page" id="visit">
+				<div class="bf_content_text">
+					<h2>联系方式</h2>
+					<p>电话:13468203277</p>
+					<p>地址:山东省沂水县莲旺街冠云轩书画院</p>
+					<p>邮箱:Spencer.Wong@outlook.com</p>
+				</div>
+			</div>
+		</div>
+		<!-- The JavaScript -->
+		<!-- the mousewheel plugin - optional to provide mousewheel support -->
+		<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+		<script type="text/javascript" src="js/jquery.template.min.js"></script>
+    </body>
 </html>
